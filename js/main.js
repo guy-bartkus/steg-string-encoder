@@ -194,11 +194,12 @@ window.onload = function() {
 
     function checkFileValid(fileSelector) { //Make sure file is selected and is of valid image file type
         let validFiles = ["image/png", "image/jpeg"];
+        let file = fileSelector.files[0];
         let valid = false;
 
         if(fileSelector.value != "") {
             for(let i = 0; i<validFiles.length; i++) {
-                if(filetype == validFiles[i]) {
+                if(file.type == validFiles[i]) {
                     valid = true;
                     break;
                 }
@@ -230,9 +231,9 @@ window.onload = function() {
 
     function getRGB_Bin(pixelArray, index) { //Gets the red, green, and blue components of a pixel in binary form
         return [
-            (pixelArray[i]).toString(2),
-            (pixelArray[i+1]).toString(2),
-            (pixelArray[i+2]).toString(2),
+            (pixelArray[index]).toString(2),
+            (pixelArray[index+1]).toString(2),
+            (pixelArray[index+2]).toString(2),
         ]
     }
 
