@@ -57,7 +57,7 @@ window.onload = function() {
             let imageData = ctx.getImageData(0, 0, img.width, img.height);
 
             encodeInImage(imageData, messageBox.value, function(data) {
-                downloadImagedata(data);
+                downloadImagedata(data, 'stego.png');
             });
         }
     }
