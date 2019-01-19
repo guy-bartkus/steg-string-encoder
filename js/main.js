@@ -93,7 +93,7 @@ window.onload = function() {
         let msgLength = message.length;
         let pixels = imageData.width * imageData.height;
         let msgLengthBin = (message.length).toString(2); //Message length in binary. To be encoded at beginning of image.
-        
+
         msgLengthBin = "0".repeat((24-msgLengthBin.length)) + msgLengthBin;
 
         if(msgLength > maxMsgLength || msgLength < 1) {
@@ -115,9 +115,9 @@ window.onload = function() {
 
                 let rgbBin = getRGB_Bin(data, i);
 
-                data[i] = setLSB(msgLengthBin.charAt(currentChar), rgbBin[0]);
-                data[i+1] = setLSB(msgLengthBin.charAt(currentChar+1), rgbBin[1]);
-                data[i+2] = setLSB(msgLengthBin.charAt(currentChar+2), rgbBin[2]);
+                for(let i2 = 0; i2<3; i2++) {
+                    data[i+i2] = setLSB(msgLengthBin.charAt(currentChar+i2), rgbBin[i2]);
+                }
             }
         }
 
