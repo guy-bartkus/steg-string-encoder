@@ -93,7 +93,8 @@ window.onload = function() {
         let msgLength = message.length;
         let pixels = imageData.width * imageData.height;
         let msgLengthBin = (message.length).toString(2); //Message length in binary. To be encoded at beginning of image.
-            msgLengthBin = "0".repeat((24-msgLengthBin.length)) + msgLengthBin;
+        
+        msgLengthBin = "0".repeat((24-msgLengthBin.length)) + msgLengthBin;
 
         if(msgLength > maxMsgLength || msgLength < 1) {
             return alert("Message must be no longer than " + maxMsgLength + " characters, and no less than 1");
