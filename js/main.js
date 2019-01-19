@@ -154,9 +154,9 @@ window.onload = function() {
 
         for(let i = 0; i<32; i++) { //Gets message length
             if(i % 4 == 0) {
-                msgLengthBin += getLSB((data[i]).toString(2));
-                msgLengthBin += getLSB((data[i+1]).toString(2));
-                msgLengthBin += getLSB((data[i+2]).toString(2));
+                for(let i2 = 0; i2<3; i2++) {
+                    msgLengthBin += getLSB((data[i+i2]).toString(2));
+                }
             }
         }
 
