@@ -1,0 +1,91 @@
+* {
+    font-family: 'Roboto', sans-serif, serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+}
+
+input[type="button"] {
+    background-color: #4CAF50;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: #FFF;
+}
+
+input[type="button"]:hover {
+    background-color: rgb(40, 218, 46);
+}
+
+input[type="button"]:active {
+    background-color: rgb(27, 233, 33);
+}
+
+input[type="text"] {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+label {
+    color: #FFF;
+}
+
+.header {
+    color: #4286f4;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.main {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25%;
+    min-width: 350px;
+    top: 15px;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.main input[type="text"], textarea {
+    display: block;
+    box-sizing: border-box;
+}
+
+#selectFile, #file, #messageBox, .encodeControls {
+    width: 100%;
+}
+
+#selectFile, #file, #charCount {
+    margin-bottom: 15px;
+}
+
+#messageBox {
+    resize: vertical;
+    height: 64px;
+}
+
+#charCount {
+    color: #FFF;
+    display: block;
+}
+
+.encodeControls {
+    display: inline-block;
+}
+
+#encode {
+    float: left;
+    width: 25%;
+}
+
+#decode {
+    float: right;
+    width: 25%;
+}
