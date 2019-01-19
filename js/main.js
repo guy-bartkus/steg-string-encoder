@@ -16,8 +16,7 @@
 window.onload = function() {
     //----------------------------------------[VARIABLES]----------------------------------------
 
-    let validFiles = ["image/png", "image/jpeg"],
-        canvas = document.createElement('canvas'),
+    let canvas = document.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         link = document.createElement('a'), //For force downloading canvas image
         maxMsgLength = 0,
@@ -193,6 +192,7 @@ window.onload = function() {
     }
 
     function checkFileValid(fileSelector) { //Make sure file is selected and is of valid image file type
+        let validFiles = ["image/png", "image/jpeg"];
         let valid = false;
 
         if(fileSelector.value != "") {
