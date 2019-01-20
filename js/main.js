@@ -234,7 +234,7 @@ window.onload = function() {
             (pixelArray[index]).toString(2),
             (pixelArray[index+1]).toString(2),
             (pixelArray[index+2]).toString(2),
-        ]
+        ];
     }
 
     function clamp(num, min, max) { //Restrict 'num' within range of 'min' and 'max'
