@@ -16,18 +16,19 @@
 window.onload = function() {
     //----------------------------------------[VARIABLES]----------------------------------------
 
-    let canvas = document.createElement('canvas'),
-        ctx = canvas.getContext('2d'),
-        link = document.createElement('a'), //For force downloading canvas image
-        maxMsgLength = 0,
-        fileSelector = document.createElement('input'), //Hidden file selector input, programatically clicked when 'selectFile' button is clicked
-        selectFile = document.getElementById('selectFile'),
-        selectedFile = document.getElementById('file'),
-        messageBox = document.getElementById('messageBox'),
-        charCount = document.getElementById('charCount'),
-        encode = document.getElementById('encode'),
-        decode = document.getElementById('decode'),
-        img = new Image;
+    const validFiles = ["image/png", "image/jpeg"],
+          canvas = document.createElement('canvas'),
+          ctx = canvas.getContext('2d'),
+          link = document.createElement('a'), //For force downloading canvas image
+          fileSelector = document.createElement('input'),
+          selectedFile = document.getElementById('file'),
+          messageBox = document.getElementById('messageBox'),
+          charCount = document.getElementById('charCount'),
+          encode = document.getElementById('encode'),
+          decode = document.getElementById('decode'),
+          img = new Image;
+
+    let maxMsgLength = 0;
 
     //----------------------------------------[INITIALIZATIONS]----------------------------------------
 
@@ -53,7 +54,7 @@ window.onload = function() {
     }
 
     encode.onclick = function() {
-        if(checkFileValid(fileSelector)) {
+        if(checkFileValid(fileSelector, validFiles)) {
             let imageData = ctx.getImageData(0, 0, img.width, img.height);
 
             encodeInImage(imageData, messageBox.value, function(data) {
@@ -63,7 +64,7 @@ window.onload = function() {
     }
 
     decode.onclick = function() {
-        if(checkFileValid(fileSelector)) {
+        if(checkFileValid(fileSelector, validFiles)) {
             let imageData = ctx.getImageData(0, 0, img.width, img.height);
 
             decodeFromImage(imageData, function(data) {
@@ -192,14 +193,13 @@ window.onload = function() {
         callback(message);
     }
 
-    function checkFileValid(fileSelector) { //Make sure file is selected and is of valid image file type
-        let validFiles = ["image/png", "image/jpeg"];
+    function checkFileValid(fileSelector, checkFiles) { //Make sure file is selected and is of valid image file type
         let file = fileSelector.files[0];
         let valid = false;
 
         if(fileSelector.value != "") {
-            for(let i = 0; i<validFiles.length; i++) {
-                if(file.type == validFiles[i]) {
+            for(let i = 0; i<checkFiles.length; i++) {
+                if(file.type == checkFiles[i]) {
                     valid = true;
                     break;
                 }
