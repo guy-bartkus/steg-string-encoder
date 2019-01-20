@@ -93,7 +93,7 @@ window.onload = function() {
             msgBin = "", //Message converted to binary
             msgLength = message.length,
             pixels = imageData.width * imageData.height,
-            msgLengthBin = (message.length).toString(2), //Message length in binary. To be encoded at beginning of image.
+            msgLengthBin = (message.length).toString(2); //Message length in binary. To be encoded at beginning of image.
 
         msgLengthBin = "0".repeat((24-msgLengthBin.length)) + msgLengthBin;
 
