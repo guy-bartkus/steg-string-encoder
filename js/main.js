@@ -89,11 +89,11 @@ window.onload = function() {
     //----------------------------------------[FUNCTIONS]----------------------------------------
     
     function encodeInImage(imageData, message, callback) {
-        let data = imageData.data;
-        let msgBin = ""; //Message converted to binary
-        let msgLength = message.length;
-        let pixels = imageData.width * imageData.height;
-        let msgLengthBin = (message.length).toString(2); //Message length in binary. To be encoded at beginning of image.
+        let data = imageData.data,
+            msgBin = "", //Message converted to binary
+            msgLength = message.length,
+            pixels = imageData.width * imageData.height,
+            msgLengthBin = (message.length).toString(2), //Message length in binary. To be encoded at beginning of image.
 
         msgLengthBin = "0".repeat((24-msgLengthBin.length)) + msgLengthBin;
 
@@ -142,12 +142,12 @@ window.onload = function() {
     }
 
     function decodeFromImage(imageData, callback) {
-        let data = imageData.data;
-        let msgLengthBin = ""; //For storing message length in binary
-        let msgBinLength; //Amount of bits encoded in image
-        let msgBin = []; //Array of every 8 bits in binary. The decoder stores every 8 bits here, so each index is an ASCII character in binary form
-        let message = ""; //Where decoded message will be stored
-        let pixels = imageData.width * imageData.height;
+        let data = imageData.data,
+            msgLengthBin = "", //For storing message length in binary
+            msgBinLength, //Amount of bits encoded in image
+            msgBin = [], //Array of every 8 bits in binary. The decoder stores every 8 bits here, so each index is an ASCII character in binary form
+            message = "", //Where decoded message will be stored
+            pixels = imageData.width * imageData.height;
 
         if(pixels < 11) {
             return alert("Image must contain at least 11 total pixels!");
@@ -172,7 +172,6 @@ window.onload = function() {
                 let currentChar = ((i-32)-((i-32)/4));
 
                 let bitsBuffer = clamp((msgBinLength - currentChar), 0, 3);
-                //console.log(bitsBuffer);
 
                 for(let i2 = 0; i2<bitsBuffer; i2++) {
                     let currentIndex = Math.floor((currentChar+i2)/8);
@@ -194,8 +193,8 @@ window.onload = function() {
     }
 
     function checkFileValid(fileSelector, checkFiles) { //Make sure file is selected and is of valid image file type
-        let file = fileSelector.files[0];
-        let valid = false;
+        let file = fileSelector.files[0],
+            valid = false;
 
         if(fileSelector.value != "") {
             for(let i = 0; i<checkFiles.length; i++) {
