@@ -15,3 +15,7 @@ So what we now have is a message represented as bytes, and some RGB components a
 For every color component in a pixel (excluding alpha), we will be storing 1 bit of data. The way this is done is by getting the component's binary representation, and setting it's least significant bit (the rightmost bit) to the bit which we want to save/encode. This means each pixel in an image can store 3 bits of data, meaning it takes at least 3 pixels to store 1 character.
 
 The reason for using the LSB (least significant bit) method and not just adding the values directly to the color components is that otherwise, when the decoder comes along to decode the message, without it having the original image, it would have no idea whether a color component was supposed to represent a 1 or a 0.
+
+### Hosted Example ###
+
+https://pepperedjerky.github.io/steg-string-encoder/
