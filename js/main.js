@@ -125,7 +125,7 @@ window.onload = function() {
         let msgBinLength = msgLength*8;
 
         for(let i = 32; i<=((msgBinLength)+Math.ceil((msgBinLength)/3))+32; i++) { //Encodes message in image
-            if(i % 4 == 0) { //Every 4th element of image data is the beginning of a new pixel's RGBA components
+            if(i % 4 == 0 && i < (data.length-3)) { //Every 4th element of image data is the beginning of a new pixel's RGBA components
                 let currentChar = ((i-32)-((i-32)/4));
 
                 let rgbBin = getRGB_Bin(data, i);
@@ -168,7 +168,7 @@ window.onload = function() {
         }
 
         for(let i = 32; i<=(msgBinLength+Math.ceil(msgBinLength/3))+32; i++) { //Decodes message from image
-            if(i % 4 == 0) {
+            if(i % 4 == 0  && i < (data.length-3)) {
                 let currentChar = ((i-32)-((i-32)/4));
 
                 let bitsBuffer = clamp((msgBinLength - currentChar), 0, 3);
@@ -229,6 +229,9 @@ window.onload = function() {
     }
 
     function getRGB_Bin(pixelArray, index) { //Gets the red, green, and blue components of a pixel in binary form
+        if(pixelArray[index] === undefined) {
+            console.log(pixelArray.length, index);
+        }
         return [
             (pixelArray[index]).toString(2),
             (pixelArray[index+1]).toString(2),
