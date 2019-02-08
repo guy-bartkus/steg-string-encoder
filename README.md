@@ -4,7 +4,7 @@ This is a javascript web application which will allow you to encode/decode a str
 
 ## How encoding works ##
 
-Every pixel in an image has a red, green, blue, and an alpha component (Alpha depends on file type, which is why I don't use it in this application). Each one of these components is one bye (0-255).
+Every pixel in an image has a red, green, blue, and an alpha component (Alpha depends on file type, which is why I don't use it in this application). Each one of these components is one byte (0-255).
 
 The message can be broken into an array of characters, and you can get their numerical representation as a single byte.
 
