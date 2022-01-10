@@ -18,4 +18,4 @@ The reason for using the LSB (least significant bit) method and not just adding 
 
 ### Hosted Example ###
 
-https://pepperedjerky.github.io/steg-string-encoder/
+https://guy-bartkus.github.io/steg-string-encoder/
